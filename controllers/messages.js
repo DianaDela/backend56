@@ -1,7 +1,7 @@
 const { request, response } = require("express")
 
 const rootMessage = (req = request, res = response) => {
-    //http://localhost:4000/api/v17/messages?nombre=Diana&apellido_paterno=Delao
+    //http://localhost:4000/api/v1/messages?nombre=Diana&apellido_paterno=Delao
     const {nombre, apellido_paterno} = req.query
     //console.log(req.query)
     if (!nombre) {
@@ -31,7 +31,9 @@ const byeMessage = (req = request, res = response) => {
 }
 
 const postMessage = (req = request, res = response) => {
-    res.status(300).json({msg: 'Mensaje POST'})
+    const{no_control, nombre} = req.body
+    //console.log({no_control, nombre})
+    res.status(200).json({msg: `Numero de control: ${no_control}, nombre: ${nombre}`})
 }
 
 const putMessage = (req = request, res = response) => {
