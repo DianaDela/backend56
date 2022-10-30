@@ -2,6 +2,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -32,6 +33,12 @@ const {request, response } = require("express")
 const pool = require("../db/connection");
 //htpp://localhost:4000/api/v1/usuarios
 >>>>>>> fa65de0 (backendB-14)
+=======
+const {request, response } = require("express")
+const bcryptjs = require("bcryptjs")
+const pool = require("../db/connection");
+//htpp://localhost:4000/api/v1/usuarios
+>>>>>>> 271b41f (backendB-15)
 const getUsers = async (req = request, res = response) => {
    let conn;
 
@@ -41,6 +48,7 @@ const getUsers = async (req = request, res = response) => {
        //Generamos la consulta
        const users = await conn.query("SELECT * FROM Usuarios", (error) => { if (error) throw error })
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -73,6 +81,8 @@ module.exports = {getUsers}
 >>>>>>> d1eb93c (backendB-13)
 =======
 >>>>>>> fa65de0 (backendB-14)
+=======
+>>>>>>> 271b41f (backendB-15)
        if (!users.length===0) {//en caso de no haber registros lo informamos
           res.status(404).json({msg: "No existen usuarios registrados"})
           return
@@ -96,11 +106,14 @@ module.exports = {getUsers}
 //}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 6f792d8 (backendB-12)
 =======
 >>>>>>> d1eb93c (backendB-13)
 =======
 >>>>>>> fa65de0 (backendB-14)
+=======
+>>>>>>> 271b41f (backendB-15)
 const getUserByID = async (req = request, res = response) =>{
     const {id} = req.params
     let conn;
@@ -115,6 +128,7 @@ const getUserByID = async (req = request, res = response) =>{
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
        console.log(users)
 
 =======
@@ -125,6 +139,8 @@ const getUserByID = async (req = request, res = response) =>{
 >>>>>>> d1eb93c (backendB-13)
 =======
 >>>>>>> fa65de0 (backendB-14)
+=======
+>>>>>>> 271b41f (backendB-15)
        if (!users) {//en caso de no haber registros lo informamos
           res.status(404).json({msg: `No existen usuarios registrados con el ID ${id}`})
           return
@@ -143,6 +159,7 @@ const getUserByID = async (req = request, res = response) =>{
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const deleteUserByID = async (req = request, res = response) =>{
 =======
 const deleteUsersByID = async (req = request, res = response) =>{
@@ -153,6 +170,9 @@ const deleteUsersByID = async (req = request, res = response) =>{
 =======
 const deleteUsersByID = async (req = request, res = response) =>{
 >>>>>>> fa65de0 (backendB-14)
+=======
+const deleteUsersByID = async (req = request, res = response) =>{
+>>>>>>> 271b41f (backendB-15)
     const {id} = req.params
     let conn;
 
@@ -165,6 +185,7 @@ const deleteUsersByID = async (req = request, res = response) =>{
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
        console.log(result.affectedRows)
 
 =======
@@ -173,6 +194,8 @@ const deleteUsersByID = async (req = request, res = response) =>{
 >>>>>>> d1eb93c (backendB-13)
 =======
 >>>>>>> fa65de0 (backendB-14)
+=======
+>>>>>>> 271b41f (backendB-15)
        if (result.affectedRows == 0) {//en caso de no haber registros lo informamos
           res.status(404).json({msg: `No existen usuarios registrados con el ID ${id}`})
           return
@@ -186,6 +209,7 @@ const deleteUsersByID = async (req = request, res = response) =>{
        if (conn) conn.end()//Termina la conexion
    }
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -208,6 +232,8 @@ const addUser = async (req = request, res = response) =>{
            Fecha_Nacimiento,
            Activo}= req.body//URI Params
 =======
+=======
+>>>>>>> 271b41f (backendB-15)
 
 const addUser= async (req = request, res = response) =>{
     const {
@@ -219,7 +245,10 @@ const addUser= async (req = request, res = response) =>{
         Contraseña,
         Fecha_Nacimiento,
         Activo}= req.body//URI Params
+<<<<<<< HEAD
 >>>>>>> fa65de0 (backendB-14)
+=======
+>>>>>>> 271b41f (backendB-15)
 
     if(!Nombre||
        !Apellidos||
@@ -228,16 +257,21 @@ const addUser= async (req = request, res = response) =>{
        !Usuario||
        !Contraseña||
 <<<<<<< HEAD
+<<<<<<< HEAD
        !Fecha_Nacimiento||
        !Activo) 
 =======
        !Activo)
 >>>>>>> fa65de0 (backendB-14)
+=======
+       !Activo)
+>>>>>>> 271b41f (backendB-15)
     {
         res.status(400).json({msg: "Faltan datos"})
         return
     }
 
+<<<<<<< HEAD
     let conn;
 
 <<<<<<< HEAD
@@ -247,12 +281,22 @@ const addUser= async (req = request, res = response) =>{
 <<<<<<< HEAD
 =======
 =======
+=======
+    const salt = bcryptjs.genSaltSync()
+    const contraseñaCifrada = bcryptjs.hashSync(Contraseña, salt)
+
+    let conn;
+
+>>>>>>> 271b41f (backendB-15)
     //validar que no existe el usuario
 
    try {
        conn = await pool.getConnection()//realizamos la conexion
 
+<<<<<<< HEAD
 >>>>>>> fa65de0 (backendB-14)
+=======
+>>>>>>> 271b41f (backendB-15)
        const [userExist] = await conn.query(`SELECT Usuario From Usuarios WHERE Usuario = '${Usuario}'`)
 
        if (userExist) {
@@ -260,9 +304,12 @@ const addUser= async (req = request, res = response) =>{
         return
        }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> d1eb93c (backendB-13)
 =======
 >>>>>>> fa65de0 (backendB-14)
+=======
+>>>>>>> 271b41f (backendB-15)
 
        //Generamos la consulta
        const result = await conn.query(`
@@ -276,16 +323,24 @@ const addUser= async (req = request, res = response) =>{
         Fecha_Nacimiento,
         Activo)
 <<<<<<< HEAD
+<<<<<<< HEAD
        VALUES(
 =======
        VALUE(
 >>>>>>> fa65de0 (backendB-14)
+=======
+       VALUE(
+>>>>>>> 271b41f (backendB-15)
         '${Nombre}',
         '${Apellidos}',
         '${Edad}',
         '${Genero}',
         '${Usuario}',
+<<<<<<< HEAD
         '${Contraseña}',
+=======
+        '${contraseñaCifrada}',
+>>>>>>> 271b41f (backendB-15)
         '${Fecha_Nacimiento}',
         '${Activo}'
        )
@@ -308,12 +363,15 @@ const addUser= async (req = request, res = response) =>{
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 module.exports = {getUsers, getUserByID, addUser, deleteUsersByID}
 >>>>>>> 6f792d8 (backendB-12)
 =======
 module.exports = {getUsers, getUserByID, addUser, deleteUsersByID}
 >>>>>>> d1eb93c (backendB-13)
 =======
+=======
+>>>>>>> 271b41f (backendB-15)
 
 const updateUserByUsuario= async (req = request, res = response) =>{
     const {
@@ -377,5 +435,9 @@ const updateUserByUsuario= async (req = request, res = response) =>{
 }
 
 
+<<<<<<< HEAD
 module.exports = {getUsers, getUserByID, addUser,  deleteUsersByID, updateUserByUsuario}
 >>>>>>> fa65de0 (backendB-14)
+=======
+module.exports = {getUsers, getUserByID, addUser,  deleteUsersByID, updateUserByUsuario}
+>>>>>>> 271b41f (backendB-15)

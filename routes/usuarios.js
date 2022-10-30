@@ -3,6 +3,7 @@ const {Router} = require("express")
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const {getUsers, getUserByID, deleteUserByID} = require("../controllers/usuarios")
 =======
 <<<<<<< HEAD
@@ -24,10 +25,14 @@ const {getUsers, getUserByID, deleteUsersByID, addUser} = require("../controller
 =======
 const {getUsers, getUserByID, deleteUsersByID, addUser, updateUserByUsuario} = require("../controllers/usuarios")
 >>>>>>> fa65de0 (backendB-14)
+=======
+const {getUsers, getUserByID, deleteUsersByID, addUser, updateUserByUsuario} = require("../controllers/usuarios")
+>>>>>>> 271b41f (backendB-15)
 const router = Router()
 
 //http://localhost:4000/api/v1/usuarios/id
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -38,10 +43,13 @@ const router = Router()
 >>>>>>> d1eb93c (backendB-13)
 =======
 >>>>>>> fa65de0 (backendB-14)
+=======
+>>>>>>> 271b41f (backendB-15)
 ///GET///
 router.get("/", getUsers)
 router.get("/id/:id", getUserByID)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -65,6 +73,8 @@ router.delete("/id/:id", deleteUsersByID)
 =======
 >>>>>>> d1eb93c (backendB-13)
 =======
+=======
+>>>>>>> 271b41f (backendB-15)
 ///POST///
 router.post("/", addUser)
 
@@ -73,6 +83,9 @@ router.put("/", updateUserByUsuario)
 
 ///DELETE///
 router.delete("/id/:id", deleteUsersByID)
+<<<<<<< HEAD
 >>>>>>> fa65de0 (backendB-14)
+=======
+>>>>>>> 271b41f (backendB-15)
 
 module.exports = router
