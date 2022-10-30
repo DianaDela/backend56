@@ -3,6 +3,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -34,11 +35,16 @@ const pool = require("../db/connection");
 //htpp://localhost:4000/api/v1/usuarios
 >>>>>>> fa65de0 (backendB-14)
 =======
+=======
+>>>>>>> 4e0720d (backendB-16)
 const {request, response } = require("express")
 const bcryptjs = require("bcryptjs")
 const pool = require("../db/connection");
 //htpp://localhost:4000/api/v1/usuarios
+<<<<<<< HEAD
 >>>>>>> 271b41f (backendB-15)
+=======
+>>>>>>> 4e0720d (backendB-16)
 const getUsers = async (req = request, res = response) => {
    let conn;
 
@@ -48,6 +54,7 @@ const getUsers = async (req = request, res = response) => {
        //Generamos la consulta
        const users = await conn.query("SELECT * FROM Usuarios", (error) => { if (error) throw error })
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -83,6 +90,8 @@ module.exports = {getUsers}
 >>>>>>> fa65de0 (backendB-14)
 =======
 >>>>>>> 271b41f (backendB-15)
+=======
+>>>>>>> 4e0720d (backendB-16)
        if (!users.length===0) {//en caso de no haber registros lo informamos
           res.status(404).json({msg: "No existen usuarios registrados"})
           return
@@ -107,6 +116,7 @@ module.exports = {getUsers}
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 6f792d8 (backendB-12)
 =======
 >>>>>>> d1eb93c (backendB-13)
@@ -114,6 +124,8 @@ module.exports = {getUsers}
 >>>>>>> fa65de0 (backendB-14)
 =======
 >>>>>>> 271b41f (backendB-15)
+=======
+>>>>>>> 4e0720d (backendB-16)
 const getUserByID = async (req = request, res = response) =>{
     const {id} = req.params
     let conn;
@@ -124,6 +136,7 @@ const getUserByID = async (req = request, res = response) =>{
        //Generamos la consulta
        const users = await conn.query(`SELECT * FROM Usuarios WHERE ID = ${id}`, (error) => { if (error) throw error })
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -141,6 +154,8 @@ const getUserByID = async (req = request, res = response) =>{
 >>>>>>> fa65de0 (backendB-14)
 =======
 >>>>>>> 271b41f (backendB-15)
+=======
+>>>>>>> 4e0720d (backendB-16)
        if (!users) {//en caso de no haber registros lo informamos
           res.status(404).json({msg: `No existen usuarios registrados con el ID ${id}`})
           return
@@ -160,6 +175,7 @@ const getUserByID = async (req = request, res = response) =>{
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const deleteUserByID = async (req = request, res = response) =>{
 =======
 const deleteUsersByID = async (req = request, res = response) =>{
@@ -173,6 +189,9 @@ const deleteUsersByID = async (req = request, res = response) =>{
 =======
 const deleteUsersByID = async (req = request, res = response) =>{
 >>>>>>> 271b41f (backendB-15)
+=======
+const deleteUsersByID = async (req = request, res = response) =>{
+>>>>>>> 4e0720d (backendB-16)
     const {id} = req.params
     let conn;
 
@@ -182,6 +201,7 @@ const deleteUsersByID = async (req = request, res = response) =>{
        //Generamos la consulta
        const result = await conn.query(`UPDATE Usuarios SET Activo = 'N' WHERE ID = ${id}`, (error) => { if (error) throw error })
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -196,6 +216,8 @@ const deleteUsersByID = async (req = request, res = response) =>{
 >>>>>>> fa65de0 (backendB-14)
 =======
 >>>>>>> 271b41f (backendB-15)
+=======
+>>>>>>> 4e0720d (backendB-16)
        if (result.affectedRows == 0) {//en caso de no haber registros lo informamos
           res.status(404).json({msg: `No existen usuarios registrados con el ID ${id}`})
           return
@@ -209,6 +231,7 @@ const deleteUsersByID = async (req = request, res = response) =>{
        if (conn) conn.end()//Termina la conexion
    }
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -234,6 +257,8 @@ const addUser = async (req = request, res = response) =>{
 =======
 =======
 >>>>>>> 271b41f (backendB-15)
+=======
+>>>>>>> 4e0720d (backendB-16)
 
 const addUser= async (req = request, res = response) =>{
     const {
@@ -246,9 +271,12 @@ const addUser= async (req = request, res = response) =>{
         Fecha_Nacimiento,
         Activo}= req.body//URI Params
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> fa65de0 (backendB-14)
 =======
 >>>>>>> 271b41f (backendB-15)
+=======
+>>>>>>> 4e0720d (backendB-16)
 
     if(!Nombre||
        !Apellidos||
@@ -256,6 +284,7 @@ const addUser= async (req = request, res = response) =>{
        !Genero||
        !Usuario||
        !Contraseña||
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
        !Fecha_Nacimiento||
@@ -266,12 +295,16 @@ const addUser= async (req = request, res = response) =>{
 =======
        !Activo)
 >>>>>>> 271b41f (backendB-15)
+=======
+       !Activo)
+>>>>>>> 4e0720d (backendB-16)
     {
         res.status(400).json({msg: "Faltan datos"})
         return
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     let conn;
 
 <<<<<<< HEAD
@@ -282,21 +315,29 @@ const addUser= async (req = request, res = response) =>{
 =======
 =======
 =======
+=======
+>>>>>>> 4e0720d (backendB-16)
     const salt = bcryptjs.genSaltSync()
     const contraseñaCifrada = bcryptjs.hashSync(Contraseña, salt)
 
     let conn;
 
+<<<<<<< HEAD
 >>>>>>> 271b41f (backendB-15)
+=======
+>>>>>>> 4e0720d (backendB-16)
     //validar que no existe el usuario
 
    try {
        conn = await pool.getConnection()//realizamos la conexion
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> fa65de0 (backendB-14)
 =======
 >>>>>>> 271b41f (backendB-15)
+=======
+>>>>>>> 4e0720d (backendB-16)
        const [userExist] = await conn.query(`SELECT Usuario From Usuarios WHERE Usuario = '${Usuario}'`)
 
        if (userExist) {
@@ -305,11 +346,14 @@ const addUser= async (req = request, res = response) =>{
        }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> d1eb93c (backendB-13)
 =======
 >>>>>>> fa65de0 (backendB-14)
 =======
 >>>>>>> 271b41f (backendB-15)
+=======
+>>>>>>> 4e0720d (backendB-16)
 
        //Generamos la consulta
        const result = await conn.query(`
@@ -324,6 +368,7 @@ const addUser= async (req = request, res = response) =>{
         Activo)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
        VALUES(
 =======
        VALUE(
@@ -331,16 +376,23 @@ const addUser= async (req = request, res = response) =>{
 =======
        VALUE(
 >>>>>>> 271b41f (backendB-15)
+=======
+       VALUE(
+>>>>>>> 4e0720d (backendB-16)
         '${Nombre}',
         '${Apellidos}',
         '${Edad}',
         '${Genero}',
         '${Usuario}',
 <<<<<<< HEAD
+<<<<<<< HEAD
         '${Contraseña}',
 =======
         '${contraseñaCifrada}',
 >>>>>>> 271b41f (backendB-15)
+=======
+        '${contraseñaCifrada}',
+>>>>>>> 4e0720d (backendB-16)
         '${Fecha_Nacimiento}',
         '${Activo}'
        )
@@ -364,6 +416,7 @@ const addUser= async (req = request, res = response) =>{
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 module.exports = {getUsers, getUserByID, addUser, deleteUsersByID}
 >>>>>>> 6f792d8 (backendB-12)
 =======
@@ -372,6 +425,8 @@ module.exports = {getUsers, getUserByID, addUser, deleteUsersByID}
 =======
 =======
 >>>>>>> 271b41f (backendB-15)
+=======
+>>>>>>> 4e0720d (backendB-16)
 
 const updateUserByUsuario= async (req = request, res = response) =>{
     const {
@@ -434,6 +489,7 @@ const updateUserByUsuario= async (req = request, res = response) =>{
    }
 }
 
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 module.exports = {getUsers, getUserByID, addUser,  deleteUsersByID, updateUserByUsuario}
@@ -441,3 +497,95 @@ module.exports = {getUsers, getUserByID, addUser,  deleteUsersByID, updateUserBy
 =======
 module.exports = {getUsers, getUserByID, addUser,  deleteUsersByID, updateUserByUsuario}
 >>>>>>> 271b41f (backendB-15)
+=======
+const signIn = async (req = request, res = response) =>{
+    const {Usuario, Contraseña} = req.body//URI Params
+
+    if (!Usuario || !Contraseña){
+        res.status(400).json({msg: "faltan datos"})
+        return
+    }
+
+    let conn;
+
+   try {
+       conn = await pool.getConnection()//realizamos la conexion
+
+       //Generamos la consulta
+       const user = await conn.query(`SELECT Contraseña, Activo FROM Usuarios WHERE Usuario= ${Usuario}`, (error) => { if (error) throw error })
+
+       if (!user || user.Activo === 'N') {
+        res.status(403).json({msg: "El usuario o contraseña que ingreso no son validos"})
+        return
+       }
+
+       const contrseñaValida = bcryptjs.compareSync(Contraseña, user.Contraseña)
+
+       if(!contraseñaValida) {
+        es.status(403).json({msg: "El usuario o contraseña que ingreso no son validos"})
+        return
+       }
+
+       res.json({msg: `El usuario se ha autenticado correctamente.`})//se manda la lista de usuarios
+   }catch (error) {
+       console.log(error)
+       res.status(500).json({msg: error})//informamos el error
+   } finally {
+       if (conn) conn.end()//Termina la conexion
+   }
+}
+
+const contrasena = async (req = request, res = response) =>{
+    const {Usuario, Contraseña, Contraseñacambio} = req.body
+
+    if(!Usuario||
+       !Contraseña||
+       !Contraseñacambio
+    ){
+        res.status(400).json({msg:"Faltan Datos"})
+        return
+    }
+
+    let conn;
+
+    try{
+        conn = await pool.getConnection() //REalizamos la conexion
+
+        //Gneramos la consulta
+        const [user] = await conn.query(`SELECT Contraseña FROM Usuarios WHERE Usuario = '${Usuario}'
+        `, (error) => {if (error) throw error})
+
+        if(!user){
+            res.status(403).json({msg:"El usuario o contraseña incorrectos"})
+            return
+        }
+
+        const contraseñavalida2 = bcryptjs.compareSync(Contraseña, user.Contraseña)
+        const salt = bcryptjs.genSaltSync()
+        const contracifrada2= bcryptjs.hashSync(Contraseñacambio, salt)
+
+        if(!contraseñavalida2){
+            res.status(403).json({msg: "Usuario y contraseña incorrectos"})
+            return
+        }
+
+        const result = await conn.query(
+            `UPDATE Usuarios SET 
+            Contraseña = '${contracifrada2}}'
+            WHERE
+            Usuario = '${Usuario}'`, (error) => {if (error) throw error})
+        res.json({msg: `La contraseña ha sido modificada`}) //se manda la lista de usuarios
+    }
+    catch(error){
+        console.log(error)
+        res.status(500).json({msg: error}) //se informa el error
+    }
+
+    finally{
+        if(conn) conn.end()
+    }
+
+}
+
+module.exports = {getUsers, getUserByID, addUser,  deleteUsersByID, updateUserByUsuario, signIn, contrasena}
+>>>>>>> 4e0720d (backendB-16)
